@@ -23,3 +23,20 @@ kubectl apply -f service.yaml -n flask-dashboard
 ## Forwardowanie portu
 kubectl port-forward service/flask-dashboard 8080:8080 -n flask-dashboard
 
+## Konfiguracja ingressa
+minikube addons enable ingress
+
+kubectl get pods -n ingress-nginx
+
+Powinno zwrocic cos w tym stylu:
+ingress-nginx-controller-xxxxx   Running
+
+kubectl apply -f ingress.yaml -n flask-dashboard
+
+Powinno sie pojawic cos takiego:
+NAME              CLASS   HOSTS         ADDRESS         PORTS
+flask-dashboard   nginx   flask.local   192.168.49.2   80
+
+## Przegladarka
+Nie dawac zadnych portow, ingress zawsze wystawia 80 (i 443)
+http://flask.local
