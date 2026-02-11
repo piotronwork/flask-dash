@@ -9,7 +9,7 @@ kubectl create secret docker-registry ghcr-secret \
   --docker-server=ghcr.io \
   --docker-username=user_do_dockerhuba \
   --docker-password='token_do_dockerhuba' \
-  --docker-email=piotr.on.work@gmail.com \
+  --docker-email=uzupelnic_adres_email \
   --dry-run=client -o yaml > secrets.yaml
 
 ## Namespace
